@@ -5,6 +5,34 @@ import GlowingBorder from '../components/GlowingBorder';
 const Projects = () => {
   const projects = [
     {
+      title: 'Aninick',
+      description: 'An fullstack mern website for anime nicknames.',
+      technologies: ['React', 'Tailwind css','Framer-motion', 'Java Script','node js','mongo db','express'],
+      github: 'https://github.com/Balaji-R-2007/s76_Ani_nick/',
+      demo: 'https://ani-nick.pages.dev/'
+    },
+    {
+      title: 'Rubric lens AI',
+      description: 'An fullstack AI mern website for evaluating image based on rubric.',
+      technologies: ['AI','React', 'Tailwind css','Java Script','node js','mongo db','express','type Script'],
+      github: 'https://github.com/Balaji-R-2007/rubric_lens/',
+      demo: 'https://rubric-lens.pages.dev/'
+    },
+    {
+      title: 'This Portfolio',
+      description: 'This portfolio is inspired by an anime called solo leveling.',
+      technologies: ['React', 'Tailwind css','Framer-motion', 'Java Script'],
+      github: 'https://github.com/Balaji-R-2007/my-portfolio',
+      demo: 'https://balaji-r-portfolio.netlify.app/'
+    },
+    {
+      title: 'E-commerce',
+      description: 'Full stack MERN e-commerce website',
+      technologies: ['React', 'Tailwind css', 'Java Script','node js','mongo db','express'],
+      github: 'https://github.com/Balaji-R-2007/Ecommerce-Follow-Along',
+      demo: ''
+    },
+    {
       title: 'Nand to Tetris',
       description: 'Creating a computer.',
       technologies: ['HDL', 'Assembly'],
@@ -35,9 +63,8 @@ const Projects = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             
             {projects.map((project, index) => (
-                <GlowingBorder>
                     <ProjectCard key={project.title} project={project} index={index} />
-                </GlowingBorder>
+                
               
             ))}
           </div>
