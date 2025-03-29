@@ -5,14 +5,16 @@ import GlowingBorder from '../components/GlowingBorder';
 
 const Skills = () => {
   const skills = [
-    { name: 'React', level: 95 },
+    { name: 'Fullstack(MERN)', level: 95 },
+    { name: 'Linux', level: 90 },
     { name: 'Python', level: 90 },
     { name: 'JavaScript', level: 92 },
     { name: 'C++', level: 88 },
-    { name: 'UI/UX(Figma)', level: 100 },
-    { name: 'Java', level: 50 },
+    { name: 'C', level: 30 },
+    { name: 'UI/UX(Figma)', level: 90 },
+    { name: 'Java', level: 30 },
     { name: 'Version Control(Git&Github)', level: 100 },
-    { name: 'AI', level: 10 }
+    { name: 'GEN AI', level: 30 }
   ];
 
   return (
