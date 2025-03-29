@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
+import GlowingBorder from './GlowingBorder';
 
 const ProjectCard = ({ project, index }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1 }}
-      className="relative group"
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: index * 0.1 }}
+    className="relative group"
     >
+      <GlowingBorder>
       <div className="absolute inset-0 bg-blue-400 rounded-lg blur opacity-0 
                     group-hover:opacity-20 transition-opacity duration-300" />
       <div className="relative border border-blue-400/50 rounded-lg p-6 
@@ -38,8 +40,8 @@ const ProjectCard = ({ project, index }) => {
           )}
           {project.demo && (
             <a
-              href={project.demo}
-              target="_blank"
+            href={project.demo}
+            target="_blank"
               rel="noopener noreferrer"
               className="text-blue-400 hover:text-blue-300 transition-colors"
             >
@@ -48,6 +50,7 @@ const ProjectCard = ({ project, index }) => {
           )}
         </div>
       </div>
+            </GlowingBorder>
     </motion.div>
   );
 };
