@@ -6,11 +6,11 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
 import Contact from './pages/Contact';
-import PageTransition from './components/PageTransition'; // Import the PageTransition component
+import PageTransition from './components/PageTransition';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/my-portfolio">
       <AnimatePresence mode="wait">
         <Layout>
           <Routes>
