@@ -106,7 +106,7 @@ const Home = () => {
     <div className="pt-16 min-h-screen bg-gradient-to-b from-gray-900 to-black">
       {showNotification && !accepted ? (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-          <GlowingBorder>
+        
             <div className="bg-gray-900 border border-blue-400 p-8 rounded-lg shadow-lg max-w-md w-full">
               <h2 className="text-xl font-mono text-blue-400 mb-4">SYSTEM NOTIFICATION</h2>
               <div className="h-1 w-24 bg-blue-400 mb-4"></div>
@@ -126,7 +126,7 @@ const Home = () => {
                 </button>
               </div>
             </div>
-          </GlowingBorder>
+      
         </div>
       ) : (
         <section className="relative min-h-screen flex flex-col items-center justify-center px-4">
