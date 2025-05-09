@@ -34,7 +34,7 @@ const Projects = () => {
       description: 'Personal portfolio website inspired by the anime "Solo Leveling" with custom animations and responsive design.',
       technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'JavaScript'],
       github: 'https://github.com/Balaji-R-2007/my-portfolio',
-      demo: 'https://balaji-r-portfolio.netlify.app/',
+      demo: 'https://balajirkb.netlify.app/',
       category: 'frontend',
       featured: true,
       image: '/images/portfolio.png'

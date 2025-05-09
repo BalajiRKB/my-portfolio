@@ -75,32 +75,74 @@ const Navigation = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation with Enhanced Blur Effect */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div
-              variants={menuVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              className="fixed inset-0 bg-gray-900/95 md:hidden pt-20"
-            >
-              <div className="flex flex-col items-center space-y-8 p-8">
-                {menuItems.map(({ path, label }) => (
-                  <NavLink
-                    key={path}
-                    to={path}
-                    onClick={() => setIsOpen(false)}
-                    className={({ isActive }) =>
-                      `text-2xl font-mono hover:text-blue-400 transition-colors 
-                      ${isActive ? 'text-blue-400' : 'text-blue-300'}`
-                    }
+            <>
+              {/* Background overlay with strong blur */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 bg-black/40 backdrop-blur-2xl md:hidden z-30"
+                onClick={() => setIsOpen(false)}
+              />
+              
+              {/* Menu content with its own styling */}
+              <motion.div
+                variants={menuVariants}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                className="fixed inset-0 bg-gray-900/90 backdrop-blur-xl md:hidden pt-20 z-40"
+              >
+                <div className="flex flex-col items-center space-y-6 p-8">
+                  {menuItems.map(({ path, label }, index) => (
+                    <motion.div
+                      key={path}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="w-full max-w-xs"
+                    >
+                      <NavLink
+                        to={path}
+                        onClick={() => setIsOpen(false)}
+                        className={({ isActive }) =>
+                          `text-xl font-mono transition-colors block w-full text-center py-4 px-6 rounded-lg
+                          ${isActive 
+                            ? 'bg-blue-600/80 text-white border-2 border-blue-400 shadow-lg shadow-blue-500/20' 
+                            : 'bg-gray-800/80 text-blue-300 border border-blue-500/30 hover:bg-blue-900/50 hover:text-blue-200'}`
+                        }
+                      >
+                        {label}
+                      </NavLink>
+                    </motion.div>
+                  ))}
+                  
+                  {/* Home Link in Mobile Menu */}
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: menuItems.length * 0.1 }}
+                    className="w-full max-w-xs mt-4"
                   >
-                    {label}
-                  </NavLink>
-                ))}
-              </div>
-            </motion.div>
+                    <NavLink
+                      to="/"
+                      onClick={() => setIsOpen(false)}
+                      className={({ isActive }) =>
+                        `text-xl font-mono transition-colors block w-full text-center py-4 px-6 rounded-lg
+                        ${isActive 
+                          ? 'bg-blue-600/80 text-white border-2 border-blue-400 shadow-lg shadow-blue-500/20' 
+                          : 'bg-gray-800/80 text-blue-300 border border-blue-500/30 hover:bg-blue-900/50 hover:text-blue-200'}`
+                      }
+                    >
+                      HOME
+                    </NavLink>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </div>
