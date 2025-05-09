@@ -27,7 +27,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <NavLink to="/" className="text-blue-400 font-mono text-xl">
-            Balaji's Portfolio
+            Balaji R
           </NavLink>
 
           {/* Desktop Navigation */}
