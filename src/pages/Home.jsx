@@ -176,7 +176,7 @@ const Home = () => {
                   
                   <div className="flex gap-4">
                     <a 
-                      href="https://github.com/balaji-r-2007" 
+                      href="https://github.com/balajirkb" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="p-3 border border-blue-400 rounded-full hover:bg-blue-900 hover:bg-opacity-40 transition-colors group"
@@ -184,7 +184,7 @@ const Home = () => {
                       <FaGithub className="text-xl group-hover:scale-110 transition-transform" />
                     </a>
                     <a 
-                      href="#" 
+                      href="https://www.linkedin.com/in/balaji-rkb/" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="p-3 border border-blue-400 rounded-full hover:bg-blue-900 hover:bg-opacity-40 transition-colors group"

@@ -3,10 +3,10 @@ import { Github, Instagram, Linkedin, Mail } from 'lucide-react';
 
 const Contact = () => {
   const socialLinks = [
-    { Icon: Github, label: 'GitHub', href: 'https://github.com/balaji-r-2007' },
-    { Icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/balaji-r-640349315/' },
+    { Icon: Github, label: 'GitHub', href: 'https://github.com/balajirkb' },
+    { Icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/balaji-rkb/' },
     { Icon: Mail, label: 'Email', href: 'balaji648balaji@gmail.com' },
-    { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/_balaji_rkb/' }
+    { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/balaji_rkb/' }
   ];
 
   return (
