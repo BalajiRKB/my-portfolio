@@ -83,7 +83,7 @@ const About = () => {
               </p>
               
               <div className="mt-8">
-                <a href="/projects" className="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 transition-colors rounded-md font-medium">View Portfolio</a>
+                <a href="/projects" className="inline-block  px-6 py-3 bg-blue-600 hover:bg-blue-700 transition-colors rounded-md font-medium">View My Projects</a>
               </div>
             </div>
             <GlowingBorder>
@@ -91,7 +91,7 @@ const About = () => {
             <div className="bg-gray-800 bg-opacity-50 p-6 rounded-lg border border-gray-700 shadow-xl transform hover:scale-[1.02] transition-transform">
               <h4 className="text-xl font-semibold text-blue-300 mb-4 text-center">Development Metrics</h4>
               <iframe 
-                src="https://github-readme-stats.vercel.app/api?username=balaji-r-2007&show_icons=true&theme=tokyonight&hide_border=true" 
+                src="https://github-readme-stats.vercel.app/api?username=balajirkb&show_icons=true&theme=tokyonight&hide_border=true" 
                 frameBorder="0"
                 className="w-full h-80"
                 title="GitHub Statistics"
