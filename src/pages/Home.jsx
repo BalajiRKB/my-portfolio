@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaCode, FaArrowRight } from 'react-icons/fa';
 import GlowingBorder from '../components/GlowingBorder';
+import { NavLink } from 'react-router-dom';
 
 const Home = () => {
   const [showNotification, setShowNotification] = useState(false);
@@ -167,12 +168,13 @@ const Home = () => {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                  <NavLink to="/about" className="w-full sm:w-auto">
                   <a 
-                    href="/about" 
                     className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-md font-medium transition-colors flex items-center gap-2 w-full sm:w-auto justify-center group"
-                  >
+                    >
                     About Me <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
                   </a>
+                    </NavLink>
                   
                   <div className="flex gap-4">
                     <a 

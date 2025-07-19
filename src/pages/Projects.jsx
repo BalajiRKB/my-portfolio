@@ -34,7 +34,7 @@ const Projects = () => {
       description: 'Personal portfolio website inspired by the anime "Solo Leveling" with custom animations and responsive design.',
       technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'JavaScript'],
       github: 'https://github.com/Balaji-R-2007/my-portfolio',
-      demo: 'https://balajirkb.netlify.app/',
+      demo: 'https://balajirkb.pages.dev/',
       category: 'frontend',
       featured: true,
       image: '/images/portfolio.png'
@@ -273,7 +273,7 @@ const Projects = () => {
                             href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-blue-300 hover:text-blue-200 transition-colors flex items-center gap-2"
+                            className="text-blue-300 hover:text-blue-200 transition-colors flex items-center gap-2 relative z-10 px-2 py-1"
                           >
                             <FaGithub /> View Code
                           </a>
@@ -282,7 +282,7 @@ const Projects = () => {
                               href={project.demo}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-blue-300 hover:text-blue-200 transition-colors flex items-center gap-2 group"
+                              className="text-blue-300 hover:text-blue-200 transition-colors flex items-center gap-2 group relative z-10 px-2 py-1"
                             >
                               Live Demo <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
                             </a>
