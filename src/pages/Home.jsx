@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaCode, FaArrowRight } from 'react-icons/fa';
 import GlowingBorder from '../components/GlowingBorder';
-import { NavLink } from 'react-router-dom';
 
 const Home = () => {
   const [showNotification, setShowNotification] = useState(false);
@@ -17,6 +16,13 @@ const Home = () => {
     'ARCH LINUX CONFIGURATOR',
     'OPEN SOURCE ADVOCATE'
   ];
+
+  const scrollToSection = (sectionId) => {
+    const section = document.querySelector(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     const hasAccepted = localStorage.getItem('portfolioAccepted');
@@ -168,13 +174,12 @@ const Home = () => {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                  <NavLink to="/about" className="w-full sm:w-auto">
-                  <a 
+                  <button 
+                    onClick={() => scrollToSection('#about')}
                     className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-md font-medium transition-colors flex items-center gap-2 w-full sm:w-auto justify-center group"
-                    >
+                  >
                     About Me <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-                  </a>
-                    </NavLink>
+                  </button>
                   
                   <div className="flex gap-4">
                     <a 
@@ -193,12 +198,12 @@ const Home = () => {
                     >
                       <FaLinkedin className="text-xl group-hover:scale-110 transition-transform" />
                     </a>
-                    <a 
-                      href="/projects" 
+                    <button 
+                      onClick={() => scrollToSection('#projects')}
                       className="p-3 border border-blue-400 rounded-full hover:bg-blue-900 hover:bg-opacity-40 transition-colors group"
                     >
                       <FaCode className="text-xl group-hover:scale-110 transition-transform" />
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>

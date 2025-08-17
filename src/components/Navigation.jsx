@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
@@ -7,15 +6,23 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { path: '/about', label: 'ABOUT' },
-    { path: '/projects', label: 'PROJECTS' },
-    { path: '/skills', label: 'SKILLS' },
-    { path: '/contact', label: 'CONTACT' },
+    { href: '#about', label: 'ABOUT' },
+    { href: '#projects', label: 'PROJECTS' },
+    { href: '#skills', label: 'SKILLS' },
+    { href: '#contact', label: 'CONTACT' },
   ];
 
   const menuVariants = {
     hidden: { opacity: 0, x: '100%' },
     visible: { opacity: 1, x: 0 },
+  };
+
+  const scrollToSection = (href) => {
+    const section = document.querySelector(href);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false);
   };
 
   return (
@@ -26,33 +33,24 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <NavLink to="/" className="text-blue-400 font-mono text-xl">
+          <button 
+            onClick={() => scrollToSection('#home')} 
+            className="text-blue-400 font-mono text-xl hover:text-blue-300 transition-colors"
+          >
             Balaji R
-          </NavLink>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {menuItems.map(({ path, label }) => (
-              <NavLink
-                key={path}
-                to={path}
-                className={({ isActive }) =>
-                  `relative font-mono hover:text-blue-400 transition-colors 
-                  ${isActive ? 'text-blue-400' : 'text-blue-300'}`
-                }
+            {menuItems.map(({ href, label }) => (
+              <button
+                key={href}
+                onClick={() => scrollToSection(href)}
+                className="relative font-mono hover:text-blue-400 transition-colors text-blue-300 group"
               >
-                {({ isActive }) => (
-                  <>
-                    {label}
-                    {isActive && (
-                      <motion.div
-                        layoutId="underline"
-                        className="absolute left-0 right-0 h-0.5 bg-blue-400 bottom-0"
-                      />
-                    )}
-                  </>
-                )}
-              </NavLink>
+                {label}
+                <span className="absolute left-0 right-0 h-0.5 bg-blue-400 bottom-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+              </button>
             ))}
           </div>
 
@@ -97,26 +95,21 @@ const Navigation = () => {
                 className="fixed inset-0 bg-gray-900/90 backdrop-blur-xl md:hidden pt-20 z-40"
               >
                 <div className="flex flex-col items-center space-y-6 p-8">
-                  {menuItems.map(({ path, label }, index) => (
+                  {menuItems.map(({ href, label }, index) => (
                     <motion.div
-                      key={path}
+                      key={href}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
                       className="w-full max-w-xs"
                     >
-                      <NavLink
-                        to={path}
-                        onClick={() => setIsOpen(false)}
-                        className={({ isActive }) =>
-                          `text-xl font-mono transition-colors block w-full text-center py-4 px-6 rounded-lg
-                          ${isActive 
-                            ? 'bg-blue-600/80 text-white border-2 border-blue-400 shadow-lg shadow-blue-500/20' 
-                            : 'bg-gray-800/80 text-blue-300 border border-blue-500/30 hover:bg-blue-900/50 hover:text-blue-200'}`
-                        }
+                      <button
+                        onClick={() => scrollToSection(href)}
+                        className="text-xl font-mono transition-colors block w-full text-center py-4 px-6 rounded-lg
+                          bg-gray-800/80 text-blue-300 border border-blue-500/30 hover:bg-blue-900/50 hover:text-blue-200"
                       >
                         {label}
-                      </NavLink>
+                      </button>
                     </motion.div>
                   ))}
                   
@@ -127,18 +120,13 @@ const Navigation = () => {
                     transition={{ delay: menuItems.length * 0.1 }}
                     className="w-full max-w-xs mt-4"
                   >
-                    <NavLink
-                      to="/"
-                      onClick={() => setIsOpen(false)}
-                      className={({ isActive }) =>
-                        `text-xl font-mono transition-colors block w-full text-center py-4 px-6 rounded-lg
-                        ${isActive 
-                          ? 'bg-blue-600/80 text-white border-2 border-blue-400 shadow-lg shadow-blue-500/20' 
-                          : 'bg-gray-800/80 text-blue-300 border border-blue-500/30 hover:bg-blue-900/50 hover:text-blue-200'}`
-                      }
+                    <button
+                      onClick={() => scrollToSection('#home')}
+                      className="text-xl font-mono transition-colors block w-full text-center py-4 px-6 rounded-lg
+                        bg-gray-800/80 text-blue-300 border border-blue-500/30 hover:bg-blue-900/50 hover:text-blue-200"
                     >
                       HOME
-                    </NavLink>
+                    </button>
                   </motion.div>
                 </div>
               </motion.div>

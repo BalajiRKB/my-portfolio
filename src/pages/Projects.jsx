@@ -229,6 +229,55 @@ const Projects = () => {
             Each project represents my commitment to clean code, innovative solutions, and continuous learning.
           </p>
 
+          {/* Author Badge */}
+          <div className="flex justify-center mb-16">
+            <GlowingBorder>
+              <div className="bg-gray-800/50 border border-blue-400/50 rounded-xl p-6 backdrop-blur-sm hover:bg-gray-800/70 transition-all duration-300">
+                <div className="flex items-center gap-4">
+                  <div className="relative">
+                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-400 shadow-lg">
+                      <img
+                        src="/profile.jpg"
+                        alt="Balaji R"
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'flex';
+                        }}
+                      />
+                      <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 hidden items-center justify-center">
+                        <span className="text-white font-bold text-xl">BR</span>
+                      </div>
+                    </div>
+                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-gray-800 animate-pulse"></div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-blue-300 mb-1">Created by Balaji R</h3>
+                    <p className="text-blue-100/70 text-sm mb-2">Full Stack Developer & Open Source Contributor</p>
+                    <div className="flex items-center gap-3 text-xs text-blue-300/60">
+                      <span className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                        {projects.length} Projects
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                        Active Developer
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                        Open Source
+                      </span>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-mono text-blue-400 mb-1">{new Date().getFullYear()}</div>
+                    <div className="text-xs text-blue-300/60">Portfolio</div>
+                  </div>
+                </div>
+              </div>
+            </GlowingBorder>
+          </div>
+
           {featuredProjects.length > 0 && (
             <div className={`mb-16 transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
               <h3 className="text-2xl font-semibold text-blue-300 mb-8">Featured Projects</h3>

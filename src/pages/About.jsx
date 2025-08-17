@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import StatusCard from '../components/StatusCard';
 import GlowingBorder from '../components/GlowingBorder';
+import SoloLevelingBackground from '../components/SoloLevelingBackground';
 import { FaCode, FaGraduationCap, FaLaptopCode, FaUserTie, FaLightbulb, FaChartLine, FaLinux, 
          FaGithub, FaTerminal, FaBriefcase, FaRegCalendarAlt, FaAward, FaUniversity, FaStar, FaArrowRight } from 'react-icons/fa';
-import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const About = () => {
   const [activeTimelineIndex, setActiveTimelineIndex] = useState(0);
   
+  const scrollToSection = (sectionId) => {
+    const section = document.querySelector(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   // Stats data
   const stats = [
     { title: 'Technical Problem Solving', value: '92/100', level: 92, delay: 0 },
@@ -119,7 +126,10 @@ const About = () => {
   }, []);
   
   return (
-    <div className="pt-16 min-h-screen bg-gradient-to-b from-gray-900 to-black">
+    <div className="pt-16 min-h-screen bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
+      {/* Solo Leveling Three.js Background */}
+      <SoloLevelingBackground />
+      
       <div className="stars-container absolute inset-0 overflow-hidden pointer-events-none">
         <div className="stars"></div>
         <div className="stars2"></div>
@@ -141,7 +151,7 @@ const About = () => {
           </motion.div>
           
           {/* Summary Section - Creative Intro */}
-          <div className="grid md:grid-cols-2 gap-12 text-white mb-20">
+          <div className="grid md:grid-cols-3 gap-12 text-white mb-20">
             <motion.div 
               className="space-y-6"
               initial={{ opacity: 0, x: -50 }}
@@ -149,7 +159,6 @@ const About = () => {
               transition={{ duration: 0.7, delay: 0.2 }}
             >
               <h3 className="text-3xl font-semibold text-blue-300 mb-4">
-                
                 The Story So Far
               </h3>
               <p className="text-lg leading-relaxed">
@@ -160,8 +169,8 @@ const About = () => {
               </p>
               
               <div className="mt-8">
-                <NavLink 
-                  to='/projects' 
+                <button 
+                  onClick={() => scrollToSection('#projects')}
                   className="group relative inline-flex items-center justify-center px-8 py-4 font-bold overflow-hidden bg-blue-600 rounded-lg"
                 >
                   <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-blue-800 rounded-full group-hover:w-80 group-hover:h-80"></span>
@@ -170,8 +179,38 @@ const About = () => {
                     View Projects
                     <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </span>
-                </NavLink>
+                </button>
               </div>
+            </motion.div>
+
+            {/* Profile Image Section */}
+            <motion.div
+              className="flex justify-center items-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              <GlowingBorder className="profile-image-container">
+                <div className="profile-image-container">
+                  <img
+                    src="/profile.jpg"
+                    alt="Balaji R - Full Stack Developer"
+                    className="profile-image"
+                    onError={(e) => {
+                      // Fallback to a placeholder if image doesn't exist
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div className="profile-image hidden image-placeholder">
+                    <div className="text-center">
+                      <div className="text-6xl mb-2">👨‍💻</div>
+                      <div className="text-sm font-mono">BALAJI R</div>
+                      <div className="text-xs opacity-60">Full Stack Developer</div>
+                    </div>
+                  </div>
+                </div>
+              </GlowingBorder>
             </motion.div>
             
             <motion.div
@@ -388,18 +427,18 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.2 }}
           >
-            <NavLink 
-              to='/projects' 
+            <button 
+              onClick={() => scrollToSection('#projects')}
               className="inline-block px-10 py-5 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold text-lg rounded-lg transform transition-all shadow-lg hover:shadow-2xl hover:-translate-y-1"
             >
               Explore My Projects
-            </NavLink>
+            </button>
           </motion.div>
         </div>
       </section>
       
       {/* CSS for stars effect */}
-      <style jsx>{`
+      <style>{`
         .stars-container {
           perspective: 500px;
           position: absolute;
