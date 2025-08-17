@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import StatusCard from '../components/StatusCard';
 import GlowingBorder from '../components/GlowingBorder';
-import SoloLevelingBackground from '../components/SoloLevelingBackground';
 import { FaCode, FaGraduationCap, FaLaptopCode, FaUserTie, FaLightbulb, FaChartLine, FaLinux, 
          FaGithub, FaTerminal, FaBriefcase, FaRegCalendarAlt, FaAward, FaUniversity, FaStar, FaArrowRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
@@ -127,8 +126,6 @@ const About = () => {
   
   return (
     <div className="pt-16 min-h-screen bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
-      {/* Solo Leveling Three.js Background */}
-      <SoloLevelingBackground />
       
       <div className="stars-container absolute inset-0 overflow-hidden pointer-events-none">
         <div className="stars"></div>
