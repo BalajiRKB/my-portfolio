@@ -54,7 +54,7 @@ const About = () => {
       color: "#3182ce"
     },
     {
-      year: "Jul 2025 - Present",
+      year: "Jul 2025 - Sep 2025",
       title: "Open source Contributor",
       organization: "GSSoC",
       description: "Active contributor to multiple open-source projects focused on web technologies and developer tools.",
@@ -66,7 +66,7 @@ const About = () => {
       color: "#38a169"
     },
     {
-      year: "2025 - Present",
+      year: "Jul 2025 - Sep 2025",
       title: "Campus Ambassador",
       organization: "GSSoC",
       description: "Promoting open-source contributions and mentoring students in web development.",
@@ -243,97 +243,122 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
           >
-            <h3 className="text-3xl font-semibold text-blue-300 mb-12 text-center">
-              
+            <h3 className="text-2xl md:text-3xl font-semibold text-blue-300 mb-8 md:mb-12 text-center px-4">
               Career Milestones
             </h3>
             
-            <div className="relative">
-              {/* Progress bar */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-gray-800 rounded-full overflow-hidden">
+            <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+              {/* Progress bar - Made thicker on mobile */}
+              <div className="absolute top-0 left-4 right-4 sm:left-6 sm:right-6 h-1.5 md:h-1 bg-gray-800 rounded-full overflow-hidden">
                 <motion.div 
-                  className="h-full bg-blue-500"
+                  className="h-full bg-blue-500 rounded-full"
                   style={{ width: `${(activeTimelineIndex / (timeline.length - 1)) * 100}%` }}
                   transition={{ duration: 0.5 }}
                 />
               </div>
               
-              {/* Timeline indicators */}
-              <div className="flex justify-between mb-12 mt-6">
+              {/* Timeline indicators - Improved mobile touch targets */}
+              <div className="flex justify-between mb-6 sm:mb-8 md:mb-12 mt-6 md:mt-8 px-0 sm:px-2">
                 {timeline.map((_, index) => (
                   <motion.button
                     key={index}
-                    className={`w-6 h-6 rounded-full border-2 border-gray-700 flex items-center justify-center ${index <= activeTimelineIndex ? 'bg-blue-500' : 'bg-gray-800'}`}
+                    className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full border-2 border-gray-700 flex items-center justify-center transition-all duration-300 relative ${
+                      index <= activeTimelineIndex ? 'bg-blue-500 border-blue-500' : 'bg-gray-800 hover:bg-gray-700'
+                    }`}
                     onClick={() => setActiveTimelineIndex(index)}
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    style={{
+                      // Ensure minimum touch target size (44px) on mobile
+                      minWidth: '44px',
+                      minHeight: '44px'
+                    }}
                   >
-                    {index <= activeTimelineIndex && (
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        className="w-2 h-2 bg-white rounded-full"
-                      />
-                    )}
+                    {/* Visual indicator (smaller than touch target) */}
+                    <div className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full border-2 border-gray-700 flex items-center justify-center absolute inset-0 m-auto ${
+                      index <= activeTimelineIndex ? 'bg-blue-500 border-blue-500' : 'bg-gray-800'
+                    }`}>
+                      {index <= activeTimelineIndex && (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 bg-white rounded-full"
+                        />
+                      )}
+                    </div>
                   </motion.button>
                 ))}
               </div>
               
-              {/* Timeline content card */}
-              <div className="perspective-1000">
+              {/* Timeline content card - Better mobile layout */}
+              <div className="relative min-h-[500px] sm:min-h-[450px] md:min-h-[400px]">
                 {timeline.map((item, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, rotateX: 30 }}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={{ 
                       opacity: index === activeTimelineIndex ? 1 : 0,
-                      rotateX: index === activeTimelineIndex ? 0 : 30,
+                      y: index === activeTimelineIndex ? 0 : 20,
                       zIndex: index === activeTimelineIndex ? 10 : 0
                     }}
                     transition={{ duration: 0.5 }}
-                    className="absolute w-full"
-                    style={{ display: index === activeTimelineIndex ? 'block' : 'none' }}
+                    className={`absolute inset-0 ${index === activeTimelineIndex ? 'block' : 'hidden'}`}
                   >
-                    <div className="bg-gray-800 bg-opacity-50 rounded-xl overflow-hidden transform-gpu transition-transform duration-700 hover:scale-[1.01] border border-gray-700">
-                      <div className="p-1" style={{ backgroundColor: item.color + '30' }}>
-                        <div className="h-1 w-full" style={{ backgroundColor: item.color }}></div>
+                    <div className="bg-gray-800/60 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700/50 shadow-2xl hover:shadow-blue-500/10 transition-all duration-300">
+                      {/* Color accent bar */}
+                      <div className="p-1" style={{ backgroundColor: item.color + '20' }}>
+                        <div className="h-1 w-full rounded" style={{ backgroundColor: item.color }}></div>
                       </div>
                       
-                      <div className="p-8">
-                        <div className="flex items-start gap-6">
-                          <div className="p-4 rounded-full" style={{ backgroundColor: item.color + '20' }}>
-                            <div className="text-3xl" style={{ color: item.color }}>
+                      {/* Main content with better mobile spacing */}
+                      <div className="p-4 sm:p-6 md:p-8">
+                        <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-5 md:gap-6">
+                          {/* Icon section - Better mobile centering */}
+                          <div className="flex-shrink-0 p-3 sm:p-3.5 md:p-4 rounded-full self-center sm:self-start mx-auto sm:mx-0" style={{ backgroundColor: item.color + '20' }}>
+                            <div className="text-2xl sm:text-2xl md:text-3xl" style={{ color: item.color }}>
                               {item.icon}
                             </div>
                           </div>
                           
-                          <div className="flex-1">
-                            <div className="flex justify-between items-center mb-2">
-                              <h4 className="text-2xl font-semibold text-white">
+                          <div className="flex-1 min-w-0 w-full text-center sm:text-left">
+                            {/* Header section - Stack on mobile */}
+                            <div className="flex flex-col gap-3 sm:gap-2 md:flex-row md:justify-between md:items-start md:gap-4 mb-4">
+                              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold text-white leading-tight">
                                 {item.title}
                               </h4>
-                              <span className="text-gray-400 text-sm flex items-center bg-gray-800 px-3 py-1 rounded-full">
-                                <FaRegCalendarAlt className="mr-2" size={12} />
+                              <span className="text-gray-400 text-xs sm:text-sm flex items-center justify-center sm:justify-start bg-gray-800/60 px-3 py-1.5 rounded-full whitespace-nowrap mx-auto sm:mx-0 md:mx-0">
+                                <FaRegCalendarAlt className="mr-2" size={10} />
                                 {item.year}
                               </span>
                             </div>
                             
-                            <p className="text-blue-300 font-medium text-lg mb-4">
+                            <p className="text-blue-300 font-medium text-sm sm:text-base md:text-lg mb-3 sm:mb-4">
                               {item.organization}
                             </p>
                             
-                            <p className="text-gray-300 mb-6">
+                            <p className="text-gray-300 mb-4 sm:mb-5 md:mb-6 text-xs sm:text-sm md:text-base leading-relaxed">
                               {item.description}
                             </p>
                             
-                            <div className="space-y-2">
-                              <h5 className="text-sm uppercase tracking-wider text-gray-400 font-semibold mb-2">Key Achievements</h5>
-                              {item.achievements.map((achievement, i) => (
-                                <div key={i} className="flex items-start gap-2">
-                                 <span className='text-blue-500'>+</span>
-                                  <p className="text-gray-300">{achievement}</p>
-                                </div>
-                              ))}
+                            {/* Achievements section */}
+                            <div className="space-y-3 sm:space-y-3 md:space-y-4">
+                              <h5 className="text-xs sm:text-xs md:text-sm uppercase tracking-wider text-gray-400 font-semibold">
+                                Key Achievements
+                              </h5>
+                              <div className="space-y-2 sm:space-y-2.5">
+                                {item.achievements.map((achievement, i) => (
+                                  <motion.div 
+                                    key={i} 
+                                    className="flex items-start gap-2 sm:gap-3 text-left"
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: i * 0.1 }}
+                                  >
+                                    <span className="text-blue-500 font-bold text-base sm:text-lg leading-none mt-0.5 flex-shrink-0">+</span>
+                                    <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">{achievement}</p>
+                                  </motion.div>
+                                ))}
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -343,23 +368,45 @@ const About = () => {
                 ))}
               </div>
               
-              {/* Timeline navigation buttons */}
-              <div className="flex justify-between mt-8">
+              {/* Timeline navigation buttons - Improved mobile layout */}
+              <div className="flex justify-between items-center mt-6 md:mt-8 gap-2 sm:gap-4">
                 <button 
                   onClick={() => setActiveTimelineIndex((prev) => (prev - 1 + timeline.length) % timeline.length)}
-                  className="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-md flex items-center"
+                  className="flex items-center px-3 sm:px-4 py-2.5 bg-gray-800/80 hover:bg-gray-700 text-gray-300 hover:text-white rounded-lg transition-all duration-200 text-xs sm:text-sm md:text-base min-w-[80px] sm:min-w-[100px] justify-center"
                 >
-                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
-                  Previous
+                  <span className="hidden sm:inline">Previous</span>
+                  <span className="sm:hidden">Prev</span>
                 </button>
+                
+                {/* Timeline indicator dots for mobile - More prominent */}
+                <div className="flex gap-1.5 sm:gap-2 md:hidden">
+                  {timeline.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveTimelineIndex(index)}
+                      className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                        index === activeTimelineIndex ? 'bg-blue-500 scale-125' : 'bg-gray-600'
+                      }`}
+                      style={{ minWidth: '20px', minHeight: '20px' }}
+                    />
+                  ))}
+                </div>
+                
+                {/* Current timeline info for desktop */}
+                <div className="hidden md:flex items-center text-gray-400 text-sm">
+                  <span>{activeTimelineIndex + 1} of {timeline.length}</span>
+                </div>
+                
                 <button 
                   onClick={() => setActiveTimelineIndex((prev) => (prev + 1) % timeline.length)}
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md flex items-center"
+                  className="flex items-center px-3 sm:px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-200 text-xs sm:text-sm md:text-base min-w-[80px] sm:min-w-[100px] justify-center"
                 >
-                  Next
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <span className="hidden sm:inline">Next</span>
+                  <span className="sm:hidden">Next</span>
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
