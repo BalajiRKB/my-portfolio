@@ -13,81 +13,81 @@ const Projects = () => {
       title: 'Aninick',
       description: 'A fullstack MERN application for anime nicknames featuring user authentication, personalized collections and advanced search capabilities.',
       technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'JavaScript', 'Node.js', 'MongoDB', 'Express'],
-      github: 'https://github.com/Balaji-R-2007/s76_Ani_nick/',
+      github: 'https://github.com/balajirkb/s76_Ani_nick/',
       demo: 'https://ani-nick.pages.dev/',
       category: 'fullstack',
       featured: true,
-      image: '/images/aninick.png'
+      image: 'aninick.png'
+    },
+    {
+      title: 'Planpa',
+      description: 'A research-backed single-page productivity planning web app built with Next.js that helps users balance work and rest through visual task management with 40-minute work blocks and 5-minute breaks.',
+      technologies: ['Next.js', 'Tailwind CSS', 'TypeScript','MongoDB'],
+      github: 'https://github.com/balajirkb/planpa',
+      demo: 'https://planpa.pages.dev/',
+      category: 'fullstack',
+      featured: true,
+      image: 'planpa.png'
     },
     {
       title: 'Rubric Lens AI',
       description: 'Computer vision AI application that evaluates images based on customizable rubrics, useful for educational assessment and quality analysis.',
       technologies: ['AI', 'React', 'Tailwind CSS', 'JavaScript', 'Node.js', 'MongoDB', 'Express', 'TypeScript'],
-      github: 'https://github.com/Balaji-R-2007/rubric_lens/',
+      github: 'https://github.com/balajirkb/rubric_lens/',
       demo: 'https://rubric-lens.pages.dev/',
       category: 'ai',
       featured: true,
-      image: '/images/rubric-lens.png'
+      image: 'rubriclens.png'
     },
     {
       title: 'Portfolio',
       description: 'Personal portfolio website inspired by the anime "Solo Leveling" with custom animations and responsive design.',
       technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'JavaScript'],
-      github: 'https://github.com/Balaji-R-2007/my-portfolio',
+      github: 'https://github.com/balajirkb/my-portfolio',
       demo: 'https://balajirkb.pages.dev/',
       category: 'frontend',
       featured: true,
-      image: '/images/portfolio.png'
+      image: 'myportfolio.png'
     },
     {
       title: 'E-commerce Platform',
       description: 'Full-featured e-commerce solution with product management, shopping cart functionality, user reviews and secure checkout.',
       technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Node.js', 'MongoDB', 'Express'],
-      github: 'https://github.com/Balaji-R-2007/Ecommerce-Follow-Along',
+      github: 'https://github.com/balajirkb/Ecommerce-Follow-Along',
       demo: '',
       category: 'fullstack',
       featured: false,
-      image: '/images/ecommerce.png'
+      image: 'https://repository-images.githubusercontent.com/456963513/82528385-a73f-488f-9003-513321283a6b'
     },
     {
       title: 'Nand to Tetris',
       description: 'Building a modern computer from first principles, from logic gates all the way to a functional computer system.',
       technologies: ['HDL', 'Assembly'],
-      github: 'https://github.com/balaji-r-2007/nand2tetris-part1',
+      github: 'https://github.com/balajirkb/nand2tetris-part1',
       demo: '',
       category: 'systems',
       featured: false,
-      image: '/images/nand2tetris.png'
+      image: 'nand2tetris.gif'
     },
     {
       title: 'Zombie Shoot',
       description: 'Action-packed 2D shooting survival game with increasing difficulty levels, weapon upgrades and score tracking.',
       technologies: ['HTML', 'CSS', 'JavaScript'],
-      github: 'https://github.com/balaji-r-2007/zombie-game/',
-      demo: 'https://balaji-r-2007.github.io/zombie-game/',
+      github: 'https://github.com/balajirkb/zombie-game/',
+      demo: 'https://balajirkb.github.io/zombie-game/',
       category: 'gaming',
       featured: false,
-      image: '/images/zombie-game.png'
+      image: 'zombieshoot.png'
     },
     {
       title: 'Archo',
       description: 'A morden Asteroid Shooter game built using React.js and the HTML5 Canvas API. Players control a spaceship to shoot and destroy incoming asteroids while avoiding collisions. The game features smooth controls, sound effects, and increasing difficulty.',
       technologies: ['React', 'Tailwindcss', 'HTML5 Canvas'],
-      github: 'https://github.com/balaji-r-2007/archo/',
+      github: 'https://github.com/balajirkb/archo/',
       demo: 'https://archo.pages.dev/',
       category: 'gaming',
       featured: true,
-      image: '/images/Archo.png'
-    },
-    {
-      title: 'Cric Web',
-      description: 'Real-time cricket score tracking application with match statistics, player profiles and live commentary features.',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
-      github: 'https://github.com/Balaji-R-2007/cric-web.git',
-      demo: 'https://balaji-r-2007.github.io/cric-web/',
-      category: 'frontend',
-      featured: false,
-      image: '/images/cric-web.png'
+      image: 'archo.png'
     }
   ];
 
