@@ -156,7 +156,7 @@ const Projects = () => {
     <div className="border border-blue-400/70 bg-blue-900/20 rounded-lg overflow-hidden hover:bg-blue-900/30 transition-all duration-300 h-full flex flex-col">
       <div className="relative">
         {project.image && (
-          <div className="h-48 bg-blue-900/40 flex items-center justify-center overflow-hidden">
+          <div className="h-40 sm:h-48 bg-blue-900/40 flex items-center justify-center overflow-hidden">
             <img
               src={project.image}
               alt={project.title}
@@ -218,24 +218,24 @@ const Projects = () => {
     <div className="pt-16 min-h-screen bg-gradient-to-b from-gray-900 to-black">
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="h-1 w-12 bg-blue-400"></div>
-            <h2 className="text-4xl font-mono text-blue-400 tracking-wider">PROJECTS</h2>
-            <div className="h-1 w-12 bg-blue-400"></div>
+          <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+            <div className="h-1 w-6 sm:w-12 bg-blue-400"></div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono text-blue-400 tracking-wider">PROJECTS</h2>
+            <div className="h-1 w-6 sm:w-12 bg-blue-400"></div>
           </div>
 
-          <p className="text-blue-300/80 max-w-3xl mx-auto mb-12 text-center">
+          <p className="text-blue-300/80 max-w-3xl mx-auto mb-8 sm:mb-12 text-center text-sm sm:text-base px-2">
             Explore my portfolio of projects spanning web development, AI applications, systems programming and game development.
             Each project represents my commitment to clean code, innovative solutions, and continuous learning.
           </p>
 
           {/* Author Badge */}
-          <div className="flex justify-center mb-16">
+          <div className="flex justify-center mb-8 sm:mb-12 md:mb-16 px-2">
             <GlowingBorder>
-              <div className="bg-gray-800/50 border border-blue-400/50 rounded-xl p-6 backdrop-blur-sm hover:bg-gray-800/70 transition-all duration-300">
-                <div className="flex items-center gap-4">
-                  <div className="relative">
-                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-400 shadow-lg">
+              <div className="bg-gray-800/50 border border-blue-400/50 rounded-xl p-3 sm:p-4 md:p-6 backdrop-blur-sm hover:bg-gray-800/70 transition-all duration-300 w-full max-w-2xl">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4">
+                  <div className="relative flex-shrink-0">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-blue-400 shadow-lg">
                       <img
                         src="/profile.jpg"
                         alt="Balaji R"
@@ -246,22 +246,22 @@ const Projects = () => {
                         }}
                       />
                       <div className="w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 hidden items-center justify-center">
-                        <span className="text-white font-bold text-xl">BR</span>
+                        <span className="text-white font-bold text-lg sm:text-xl">BR</span>
                       </div>
                     </div>
-                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-gray-800 animate-pulse"></div>
+                    <div className="absolute -bottom-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 bg-green-500 rounded-full border-2 border-gray-800 animate-pulse"></div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-blue-300 mb-1">Created by Balaji R</h3>
-                    <p className="text-blue-100/70 text-sm mb-2">Full Stack Developer & Open Source Contributor</p>
-                    <div className="flex items-center gap-3 text-xs text-blue-300/60">
+                  <div className="flex-1 text-center sm:text-left">
+                    <h3 className="text-base sm:text-lg font-semibold text-blue-300 mb-1">Created by Balaji R</h3>
+                    <p className="text-blue-100/70 text-xs sm:text-sm mb-2">Full Stack Developer & Open Source Contributor</p>
+                    <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 text-xs text-blue-300/60">
                       <span className="flex items-center gap-1">
                         <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
                         {projects.length} Projects
                       </span>
                       <span className="flex items-center gap-1">
                         <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                        Active Developer
+                        Active
                       </span>
                       <span className="flex items-center gap-1">
                         <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
@@ -269,8 +269,8 @@ const Projects = () => {
                       </span>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <div className="text-2xl font-mono text-blue-400 mb-1">{new Date().getFullYear()}</div>
+                  <div className="text-center sm:text-right flex-shrink-0">
+                    <div className="text-xl sm:text-2xl font-mono text-blue-400 mb-1">{new Date().getFullYear()}</div>
                     <div className="text-xs text-blue-300/60">Portfolio</div>
                   </div>
                 </div>
@@ -279,9 +279,9 @@ const Projects = () => {
           </div>
 
           {featuredProjects.length > 0 && (
-            <div className={`mb-16 transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
-              <h3 className="text-2xl font-semibold text-blue-300 mb-8">Featured Projects</h3>
-              <div className="grid md:grid-cols-2 gap-8">
+            <div className={`mb-12 md:mb-16 transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
+              <h3 className="text-2xl font-semibold text-blue-300 mb-6 md:mb-8">Featured Projects</h3>
+              <div className="grid md:grid-cols-2 gap-6 md:gap-8">
                 {featuredProjects.map((project, index) => (
                   <GlowingBorder key={project.title} intensity={0.6}>
                     <div className="border border-blue-400 bg-blue-900/20 rounded-lg overflow-hidden hover:bg-blue-900/30 transition-all duration-300 h-full flex flex-col">
@@ -405,7 +405,7 @@ const Projects = () => {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {displayedProjects.map((project, index) => (
               <div
                 key={project.title}
