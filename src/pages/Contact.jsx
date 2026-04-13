@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { Github, Instagram, Linkedin, Mail, MapPin, Clock, Send, ExternalLink } from 'lucide-react';
 
+const XIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor" aria-hidden="true">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636Zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
+
 const Contact = () => {
   const [copied, setCopied] = useState(false);
 
@@ -10,6 +16,11 @@ const Contact = () => {
     navigator.clipboard.writeText(email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const openMail = (e) => {
+    e.preventDefault();
+    window.location.href = `mailto:${email}`;
   };
 
   const socialLinks = [
@@ -33,6 +44,13 @@ const Contact = () => {
       href: 'https://www.instagram.com/balaji_rkb/',
       username: '@balaji_rkb',
       color: 'hover:border-pink-400 hover:text-pink-300'
+    },
+    {
+      Icon: XIcon,
+      label: 'X (Twitter)',
+      href: 'https://x.com/BalajixRKB',
+      username: '@BalajixRKB',
+      color: 'hover:border-gray-300 hover:text-gray-100'
     }
   ];
 
@@ -66,17 +84,17 @@ const Contact = () => {
                   <Mail size={14} /> EMAIL
                 </div>
                 <div className="flex items-center justify-between gap-3">
-                  <a
-                    href={`mailto:${email}`}
-                    className="text-white hover:text-blue-300 transition-colors text-sm break-all"
+                  <button
+                    onClick={openMail}
+                    className="text-white hover:text-blue-300 transition-colors text-sm break-all text-left"
                   >
                     {email}
-                  </a>
+                  </button>
                   <button
                     onClick={copyEmail}
                     className="flex-shrink-0 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 rounded-lg text-xs font-mono transition-colors"
                   >
-                    {copied ? '✓ Copied' : 'Copy'}
+                    {copied ? '\u2713 Copied' : 'Copy'}
                   </button>
                 </div>
               </div>
@@ -138,13 +156,13 @@ const Contact = () => {
               </div>
 
               {/* Primary CTA */}
-              <a
-                href={`mailto:${email}`}
+              <button
+                onClick={openMail}
                 className="flex items-center justify-center gap-3 w-full py-4 bg-blue-600 hover:bg-blue-700 rounded-xl font-mono text-sm font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 group mt-4"
               >
                 <Send size={16} className="group-hover:translate-x-1 transition-transform" />
                 SEND ME AN EMAIL
-              </a>
+              </button>
 
               <p className="text-center text-blue-300/40 text-xs font-mono">
                 Prefer async? Reach me on LinkedIn or GitHub.
