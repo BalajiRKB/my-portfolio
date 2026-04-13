@@ -13,10 +13,8 @@ function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    // Simulate initial loading
     setTimeout(() => setLoading(false), 2000);
 
-    // Scroll progress tracking
     const handleScroll = () => {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -32,15 +30,8 @@ function App() {
     return (
       <div className="h-screen bg-gray-900 flex items-center justify-center">
         <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.5, 1, 0.5],
-          }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
+          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 1.5, repeat: Infinity, repeatType: 'reverse' }}
           className="text-blue-400 text-4xl font-mono"
         >
           LOADING...
@@ -52,25 +43,25 @@ function App() {
   return (
     <>
       <Helmet>
-        <title>Balaji R | Full Stack Developer, Linux Enthusiast, Open Source | Portfolio</title>
-        <meta name="description" content="Balaji R - Full Stack Developer, Linux Enthusiast, and Open Source Contributor. Explore my projects, skills, and professional journey. Available for collaboration and opportunities." />
-        <meta name="keywords" content="Balaji R, Full Stack Developer, Linux, MERN, React, Node.js, Open Source, Portfolio, Web Developer, Software Engineer, GSSoC, Kalvium, Mysore" />
+        <title>Balaji R | Full Stack Developer & AI Engineer | Portfolio</title>
+        <meta name="description" content="Balaji R — Full Stack Developer, AI Integration Engineer, and Open Source Founder from Coimbatore. Built 18+ projects across MERN, AI, and systems. Founder of OpenLn. Available for freelance and internships." />
+        <meta name="keywords" content="Balaji R, Full Stack Developer, AI Engineer, MERN Stack, React, Node.js, Open Source, OpenLn, GVP, Portfolio, Freelance Developer, Coimbatore, Kalvium" />
         <meta name="author" content="Balaji R" />
-        <meta property="og:title" content="Balaji R | Full Stack Developer Portfolio" />
-        <meta property="og:description" content="Portfolio of Balaji R - Full Stack Developer, Linux Enthusiast, and Open Source Contributor." />
+        <meta property="og:title" content="Balaji R | Full Stack Developer & AI Engineer" />
+        <meta property="og:description" content="Balaji R — Full Stack Developer and Open Source Founder. 18+ projects, freelance Tech Lead at GVP, founder of OpenLn ecosystem. Available for freelance & internships." />
         <meta property="og:image" content="https://balajirkb.me/b.svg" />
         <meta property="og:url" content="https://balajirkb.me/" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Balaji R | Full Stack Developer Portfolio" />
-        <meta name="twitter:description" content="Portfolio of Balaji R - Full Stack Developer, Linux Enthusiast, and Open Source Contributor." />
+        <meta name="twitter:title" content="Balaji R | Full Stack Developer & AI Engineer" />
+        <meta name="twitter:description" content="Balaji R — Full Stack Developer and Open Source Founder. 18+ projects, freelance Tech Lead at GVP, founder of OpenLn ecosystem." />
         <meta name="twitter:image" content="https://balajirkb.me/b.svg" />
+        <link rel="canonical" href="https://balajirkb.me/" />
         <link rel="icon" type="image/svg" href="/b.svg" />
       </Helmet>
-      
-      {/* Scroll Progress Indicator */}
+
       <div className="scroll-progress">
-        <motion.div 
+        <motion.div
           className="scroll-progress-bar"
           style={{ width: `${scrollProgress}%` }}
         />
@@ -79,21 +70,11 @@ function App() {
       <div className="min-h-screen bg-gray-900">
         <Navigation />
         <main>
-          <section id="home">
-            <Home />
-          </section>
-          <section id="about">
-            <About />
-          </section>
-          <section id="projects">
-            <Projects />
-          </section>
-          <section id="skills">
-            <Skills />
-          </section>
-          <section id="contact">
-            <Contact />
-          </section>
+          <section id="home"><Home /></section>
+          <section id="about"><About /></section>
+          <section id="projects"><Projects /></section>
+          <section id="skills"><Skills /></section>
+          <section id="contact"><Contact /></section>
         </main>
       </div>
     </>
