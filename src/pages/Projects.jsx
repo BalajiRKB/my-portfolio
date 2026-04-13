@@ -10,6 +10,16 @@ const Projects = () => {
 
   const projects = [
     {
+      title: 'Rubric Lens AI',
+      description: 'AI-powered rubric-based image evaluation platform. Upload any image and define custom rubrics — Gemini Vision grades it with structured feedback. Built for educational assessment and quality control.',
+      technologies: ['TypeScript', 'React', 'Node.js', 'MongoDB', 'Express', 'Gemini API'],
+      github: 'https://github.com/balajirkb/rubric_lens/',
+      demo: 'https://rubriclens.balajirkb.me',
+      category: 'ai',
+      featured: true,
+      image: 'rubriclens.png'
+    },
+    {
       title: 'Aninick',
       description: 'A fullstack MERN application for anime nicknames featuring user authentication, personalized collections and advanced search capabilities.',
       technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'JavaScript', 'Node.js', 'MongoDB', 'Express'],
@@ -21,8 +31,8 @@ const Projects = () => {
     },
     {
       title: 'Planpa',
-      description: 'A research-backed single-page productivity planning web app built with Next.js that helps users balance work and rest through visual task management with 40-minute work blocks and 5-minute breaks.',
-      technologies: ['Next.js', 'Tailwind CSS', 'TypeScript','MongoDB'],
+      description: 'Research-backed productivity planner built with Next.js. Uses 40-minute deep work blocks + 5-minute breaks to maximize focus. Visual task management with session tracking.',
+      technologies: ['Next.js', 'Tailwind CSS', 'TypeScript', 'MongoDB'],
       github: 'https://github.com/balajirkb/planpa',
       demo: 'https://planpa.pages.dev/',
       category: 'fullstack',
@@ -30,38 +40,48 @@ const Projects = () => {
       image: 'planpa.png'
     },
     {
-      title: 'Rubric Lens AI',
-      description: 'Computer vision AI application that evaluates images based on customizable rubrics, useful for educational assessment and quality analysis.',
-      technologies: ['AI', 'React', 'Tailwind CSS', 'JavaScript', 'Node.js', 'MongoDB', 'Express', 'TypeScript'],
-      github: 'https://github.com/balajirkb/rubric_lens/',
-      demo: 'https://rubric-lens.pages.dev/',
-      category: 'ai',
+      title: 'Awop — Real-Time Chat',
+      description: 'Real-time chat app where users create or join rooms via room codes — no account needed. Built with Socket.IO for instant messaging and themed with a One Piece pirate aesthetic.',
+      technologies: ['React', 'Node.js', 'Socket.IO', 'Express', 'MongoDB'],
+      github: 'https://github.com/balajirkb/awop',
+      demo: 'https://awop.balajirkb.me',
+      category: 'fullstack',
       featured: true,
-      image: 'rubriclens.png'
+      image: 'https://opengraph.githubassets.com/1/BalajiRKB/awop'
+    },
+    {
+      title: 'Archo',
+      description: 'A modern Asteroid Shooter built with React.js and the HTML5 Canvas API. Features smooth spaceship controls, sound effects, and progressively increasing difficulty waves.',
+      technologies: ['React', 'Tailwind CSS', 'HTML5 Canvas', 'JavaScript'],
+      github: 'https://github.com/balajirkb/archo/',
+      demo: 'https://archo.pages.dev/',
+      category: 'gaming',
+      featured: true,
+      image: 'archo.png'
     },
     {
       title: 'Portfolio',
       description: 'Personal portfolio website inspired by the anime "Solo Leveling" with custom animations and responsive design.',
       technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'JavaScript'],
       github: 'https://github.com/balajirkb/my-portfolio',
-      demo: 'https://balajirkb.pages.dev/',
+      demo: 'https://balajirkb.me',
       category: 'frontend',
       featured: true,
       image: 'myportfolio.png'
     },
     {
       title: 'E-commerce Platform',
-      description: 'Full-featured e-commerce solution with product management, shopping cart functionality, user reviews and secure checkout.',
+      description: 'Full-featured e-commerce solution with product management, shopping cart, user reviews, and secure checkout flow — built end-to-end with the MERN stack.',
       technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Node.js', 'MongoDB', 'Express'],
       github: 'https://github.com/balajirkb/Ecommerce-Follow-Along',
       demo: '',
       category: 'fullstack',
       featured: false,
-      image: 'https://repository-images.githubusercontent.com/456963513/82528385-a73f-488f-9003-513321283a6b'
+      image: 'https://opengraph.githubassets.com/1/BalajiRKB/Ecommerce-Follow-Along'
     },
     {
       title: 'Nand to Tetris',
-      description: 'Building a modern computer from first principles, from logic gates all the way to a functional computer system.',
+      description: 'Building a modern computer from first principles — from logic gates and Boolean algebra all the way to a fully functional computer system and assembler.',
       technologies: ['HDL', 'Assembly'],
       github: 'https://github.com/balajirkb/nand2tetris-part1',
       demo: '',
@@ -78,16 +98,6 @@ const Projects = () => {
       category: 'gaming',
       featured: false,
       image: 'zombieshoot.png'
-    },
-    {
-      title: 'Archo',
-      description: 'A morden Asteroid Shooter game built using React.js and the HTML5 Canvas API. Players control a spaceship to shoot and destroy incoming asteroids while avoiding collisions. The game features smooth controls, sound effects, and increasing difficulty.',
-      technologies: ['React', 'Tailwindcss', 'HTML5 Canvas'],
-      github: 'https://github.com/balajirkb/archo/',
-      demo: 'https://archo.pages.dev/',
-      category: 'gaming',
-      featured: true,
-      image: 'archo.png'
     }
   ];
 
