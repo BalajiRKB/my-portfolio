@@ -2,8 +2,128 @@ import React, { useEffect, useState } from 'react';
 import StatusCard from '../components/StatusCard';
 import GlowingBorder from '../components/GlowingBorder';
 import { FaCode, FaGraduationCap, FaLaptopCode, FaUserTie, FaLinux,
-         FaGithub, FaTerminal, FaBriefcase, FaRegCalendarAlt, FaUniversity, FaArrowRight, FaRocket } from 'react-icons/fa';
+         FaGithub, FaTerminal, FaBriefcase, FaRegCalendarAlt, FaUniversity, FaArrowRight, FaRocket, FaStar, FaCodeBranch, FaUsers, FaUserFriends } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+
+const GitHubStatsCard = () => {
+  const [stats, setStats] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const [userRes, reposRes] = await Promise.all([
+          fetch('https://api.github.com/users/BalajiRKB'),
+          fetch('https://api.github.com/users/BalajiRKB/repos?per_page=100')
+        ]);
+        if (!userRes.ok) throw new Error('Failed');
+        const user = await userRes.json();
+        const repos = await reposRes.json();
+        const totalStars = Array.isArray(repos)
+          ? repos.reduce((acc, r) => acc + (r.stargazers_count || 0), 0)
+          : 0;
+        setStats({
+          name: user.name || 'Balaji R',
+          login: user.login,
+          followers: user.followers,
+          following: user.following,
+          public_repos: user.public_repos,
+          totalStars,
+          avatar_url: user.avatar_url,
+        });
+      } catch (e) {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchStats();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex flex-col items-center justify-center h-full gap-3 py-8">
+        <div className="w-10 h-10 border-2 border-blue-400 border-t-transparent rounded-full animate-spin" />
+        <p className="text-gray-400 text-sm font-mono">Loading GitHub stats...</p>
+      </div>
+    );
+  }
+
+  if (error || !stats) {
+    return (
+      <div className="flex flex-col items-center justify-center h-full gap-2 py-8 text-center">
+        <FaGithub className="text-4xl text-gray-500" />
+        <p className="text-gray-400 text-sm">Could not load GitHub stats.</p>
+        <a
+          href="https://github.com/BalajiRKB"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-400 text-xs underline"
+        >
+          View on GitHub →
+        </a>
+      </div>
+    );
+  }
+
+  const statItems = [
+    { icon: <FaCode />, label: 'Public Repos', value: stats.public_repos, color: '#3182ce' },
+    { icon: <FaStar />, label: 'Total Stars', value: stats.totalStars, color: '#d97706' },
+    { icon: <FaUsers />, label: 'Followers', value: stats.followers, color: '#38a169' },
+    { icon: <FaUserFriends />, label: 'Following', value: stats.following, color: '#805ad5' },
+  ];
+
+  return (
+    <div className="flex flex-col gap-4 h-full">
+      <a
+        href={`https://github.com/${stats.login}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-3 group"
+      >
+        <img
+          src={stats.avatar_url}
+          alt={stats.name}
+          className="w-10 h-10 rounded-full border-2 border-blue-500"
+          loading="lazy"
+        />
+        <div>
+          <p className="text-white font-semibold text-sm group-hover:text-blue-300 transition-colors">{stats.name}</p>
+          <p className="text-gray-400 text-xs font-mono">@{stats.login}</p>
+        </div>
+        <FaGithub className="ml-auto text-gray-400 group-hover:text-white transition-colors text-lg" />
+      </a>
+
+      <div className="h-px bg-gray-700 w-full" />
+
+      <div className="grid grid-cols-2 gap-3 flex-1">
+        {statItems.map((item, i) => (
+          <motion.div
+            key={item.label}
+            className="flex flex-col items-center justify-center bg-gray-900/60 rounded-lg py-3 px-2 border border-gray-700/50"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: i * 0.1 }}
+          >
+            <div className="text-lg mb-1" style={{ color: item.color }}>{item.icon}</div>
+            <p className="text-white font-bold text-xl">{item.value}</p>
+            <p className="text-gray-400 text-xs text-center mt-0.5">{item.label}</p>
+          </motion.div>
+        ))}
+      </div>
+
+      <a
+        href="https://github.com/BalajiRKB"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block text-center text-xs text-blue-400 hover:text-blue-300 transition-colors font-mono py-1"
+      >
+        github.com/BalajiRKB →
+      </a>
+    </div>
+  );
+};
 
 const About = () => {
   const [activeTimelineIndex, setActiveTimelineIndex] = useState(0);
@@ -192,7 +312,7 @@ const About = () => {
               </GlowingBorder>
             </motion.div>
 
-            {/* GitHub Stats */}
+            {/* GitHub Stats — Native API */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -201,19 +321,7 @@ const About = () => {
               <GlowingBorder className="h-full">
                 <div className="bg-gray-800 bg-opacity-50 p-6 rounded-lg border border-gray-700 shadow-xl transform hover:scale-[1.02] transition-transform h-full flex flex-col">
                   <h4 className="text-xl font-semibold text-blue-300 mb-4 text-center">GitHub Stats</h4>
-                  <iframe
-                    src="https://github-readme-stats.vercel.app/api?username=balajirkb&show_icons=true&theme=tokyonight&hide_border=true"
-                    frameBorder="0"
-                    className="w-full flex-grow"
-                    title="GitHub Statistics"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'block';
-                    }}
-                  ></iframe>
-                  <div className="hidden text-center text-blue-300 py-10">
-                    GitHub statistics currently unavailable.
-                  </div>
+                  <GitHubStatsCard />
                 </div>
               </GlowingBorder>
             </motion.div>
