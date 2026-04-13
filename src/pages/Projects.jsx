@@ -20,6 +20,26 @@ const Projects = () => {
       image: 'rubriclens.png'
     },
     {
+      title: 'SEC-B — Second Brain',
+      description: 'AI-powered second-brain app that understands the intent and context of your thoughts using embeddings. Connects related ideas even with zero overlapping keywords — semantic search for your mind.',
+      technologies: ['TypeScript', 'React', 'Node.js', 'MongoDB', 'Embeddings', 'Express'],
+      github: 'https://github.com/balajirkb/SEC-B',
+      demo: '',
+      category: 'ai',
+      featured: true,
+      image: 'https://opengraph.githubassets.com/1/BalajiRKB/SEC-B'
+    },
+    {
+      title: 'OpenLn — AI Learning Engine',
+      description: 'AI-driven personalized learning & goal tracking system — the origin of the OpenLn open-source ecosystem. Sets learning paths, tracks progress, and adapts based on user performance.',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'AI', 'JavaScript'],
+      github: 'https://github.com/balajirkb/Openln-old',
+      demo: '',
+      category: 'ai',
+      featured: true,
+      image: 'https://opengraph.githubassets.com/1/BalajiRKB/Openln-old'
+    },
+    {
       title: 'Aninick',
       description: 'A fullstack MERN application for anime nicknames featuring user authentication, personalized collections and advanced search capabilities.',
       technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'JavaScript', 'Node.js', 'MongoDB', 'Express'],
@@ -70,6 +90,56 @@ const Projects = () => {
       image: 'myportfolio.png'
     },
     {
+      title: 'ChannelZero',
+      description: 'Full-stack shared expense manager for groups — roommates, friends, travel buddies. Transparently tracks who owes what, splits bills, and settles balances in real time.',
+      technologies: ['TypeScript', 'React', 'Node.js', 'MongoDB', 'Express'],
+      github: 'https://github.com/balajirkb/ChannelZero',
+      demo: '',
+      category: 'fullstack',
+      featured: false,
+      image: 'https://opengraph.githubassets.com/1/BalajiRKB/ChannelZero'
+    },
+    {
+      title: 'edgent — Learning Path Generator',
+      description: 'Smart AI-powered learning path generator built in Python. Analyzes your goals and current skill level to generate a personalized roadmap — the engine behind the OpenLn ecosystem.',
+      technologies: ['Python', 'AI', 'NLP'],
+      github: 'https://github.com/balajirkb/edgent',
+      demo: '',
+      category: 'ai',
+      featured: false,
+      image: 'https://opengraph.githubassets.com/1/BalajiRKB/edgent'
+    },
+    {
+      title: 'Recruiter AI',
+      description: 'AI-powered recruiter assistant built with TypeScript. Automates candidate screening, generates interview questions, and ranks applicants based on role requirements.',
+      technologies: ['TypeScript', 'React', 'Node.js', 'AI', 'Express'],
+      github: 'https://github.com/balajirkb/Recruiter-AI',
+      demo: '',
+      category: 'ai',
+      featured: false,
+      image: 'https://opengraph.githubassets.com/1/BalajiRKB/Recruiter-AI'
+    },
+    {
+      title: 'GVP — Global Venture Play',
+      description: 'Full-stack TypeScript platform built as Tech Lead at Global Venture Play. Includes product management, team collaboration features, and scalable architecture for startup operations.',
+      technologies: ['TypeScript', 'React', 'Node.js', 'MongoDB', 'Express'],
+      github: 'https://github.com/balajirkb/GVP',
+      demo: '',
+      category: 'fullstack',
+      featured: false,
+      image: 'https://opengraph.githubassets.com/1/BalajiRKB/GVP'
+    },
+    {
+      title: 'Inpart',
+      description: 'TypeScript-based web application focused on interactive participation and engagement features. Built with a clean component architecture and modern full-stack patterns.',
+      technologies: ['TypeScript', 'React', 'Node.js', 'Express'],
+      github: 'https://github.com/balajirkb/Inpart',
+      demo: '',
+      category: 'fullstack',
+      featured: false,
+      image: 'https://opengraph.githubassets.com/1/BalajiRKB/Inpart'
+    },
+    {
       title: 'E-commerce Platform',
       description: 'Full-featured e-commerce solution with product management, shopping cart, user reviews, and secure checkout flow — built end-to-end with the MERN stack.',
       technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Node.js', 'MongoDB', 'Express'],
@@ -78,6 +148,26 @@ const Projects = () => {
       category: 'fullstack',
       featured: false,
       image: 'https://opengraph.githubassets.com/1/BalajiRKB/Ecommerce-Follow-Along'
+    },
+    {
+      title: 'ToDoo',
+      description: 'MERN stack To-Do application with full user authentication, profile management, and task CRUD. Clean architecture with JWT auth and persistent MongoDB storage.',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'JavaScript'],
+      github: 'https://github.com/balajirkb/ToDoo',
+      demo: '',
+      category: 'fullstack',
+      featured: false,
+      image: 'https://opengraph.githubassets.com/1/BalajiRKB/ToDoo'
+    },
+    {
+      title: 'Arch-dot',
+      description: 'Personal Arch Linux dotfiles — window manager configs, shell setup, and system-level customizations for a fully optimized developer environment on bare metal.',
+      technologies: ['CSS', 'Shell', 'Linux', 'Arch Linux'],
+      github: 'https://github.com/balajirkb/Arch-dot',
+      demo: '',
+      category: 'tools',
+      featured: false,
+      image: 'https://opengraph.githubassets.com/1/BalajiRKB/Arch-dot'
     },
     {
       title: 'Nand to Tetris',
@@ -107,7 +197,8 @@ const Projects = () => {
     { id: 'frontend', name: 'Frontend' },
     { id: 'ai', name: 'AI & ML' },
     { id: 'gaming', name: 'Games' },
-    { id: 'systems', name: 'Systems' }
+    { id: 'systems', name: 'Systems' },
+    { id: 'tools', name: 'Tools & Config' }
   ];
 
   const toggleCategory = (categoryId) => {
