@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import GlowingBorder from '../components/GlowingBorder';
-import { FaSearch, FaStar, FaArrowRight, FaGithub, FaExternalLinkAlt, FaCode, FaTimes, FaCheck } from 'react-icons/fa';
+import { FaSearch, FaStar, FaArrowRight, FaGithub, FaExternalLinkAlt, FaCode, FaTimes, FaCheck, FaBriefcase } from 'react-icons/fa';
 
 const Projects = () => {
   const [selectedCategories, setSelectedCategories] = useState(['all']);
@@ -17,7 +17,19 @@ const Projects = () => {
       demo: 'https://rubriclens.balajirkb.me',
       category: 'ai',
       featured: true,
+      freelance: false,
       image: 'rubriclens.png'
+    },
+    {
+      title: 'GVP — Startup Application Portal',
+      description: 'Freelance project built as Tech Lead for Global Venture Play — a startup venture studio. Full-stack platform where startups submit applications with business details, traction metrics, and funding info. Features a protected admin dashboard with real-time stats, applicant search, CSV export, and detailed founder profiles.',
+      technologies: ['TypeScript', 'React', 'Node.js', 'MongoDB', 'Express', 'Cloudinary', 'Gemini API'],
+      github: 'https://github.com/balajirkb/GVP',
+      demo: '',
+      category: 'freelance',
+      featured: true,
+      freelance: true,
+      image: 'https://opengraph.githubassets.com/1/BalajiRKB/GVP'
     },
     {
       title: 'SEC-B — Second Brain',
@@ -27,6 +39,7 @@ const Projects = () => {
       demo: '',
       category: 'ai',
       featured: true,
+      freelance: false,
       image: 'https://opengraph.githubassets.com/1/BalajiRKB/SEC-B'
     },
     {
@@ -37,6 +50,7 @@ const Projects = () => {
       demo: '',
       category: 'ai',
       featured: true,
+      freelance: false,
       image: 'https://opengraph.githubassets.com/1/BalajiRKB/Openln-old'
     },
     {
@@ -47,6 +61,7 @@ const Projects = () => {
       demo: 'https://ani-nick.pages.dev/',
       category: 'fullstack',
       featured: true,
+      freelance: false,
       image: 'aninick.png'
     },
     {
@@ -57,6 +72,7 @@ const Projects = () => {
       demo: 'https://planpa.pages.dev/',
       category: 'fullstack',
       featured: true,
+      freelance: false,
       image: 'planpa.png'
     },
     {
@@ -67,6 +83,7 @@ const Projects = () => {
       demo: 'https://awop.balajirkb.me',
       category: 'fullstack',
       featured: true,
+      freelance: false,
       image: 'https://opengraph.githubassets.com/1/BalajiRKB/awop'
     },
     {
@@ -77,6 +94,7 @@ const Projects = () => {
       demo: 'https://archo.pages.dev/',
       category: 'gaming',
       featured: true,
+      freelance: false,
       image: 'archo.png'
     },
     {
@@ -87,6 +105,7 @@ const Projects = () => {
       demo: 'https://balajirkb.me',
       category: 'frontend',
       featured: true,
+      freelance: false,
       image: 'myportfolio.png'
     },
     {
@@ -97,6 +116,7 @@ const Projects = () => {
       demo: '',
       category: 'fullstack',
       featured: false,
+      freelance: false,
       image: 'https://opengraph.githubassets.com/1/BalajiRKB/ChannelZero'
     },
     {
@@ -107,6 +127,7 @@ const Projects = () => {
       demo: '',
       category: 'ai',
       featured: false,
+      freelance: false,
       image: 'https://opengraph.githubassets.com/1/BalajiRKB/edgent'
     },
     {
@@ -117,17 +138,8 @@ const Projects = () => {
       demo: '',
       category: 'ai',
       featured: false,
+      freelance: false,
       image: 'https://opengraph.githubassets.com/1/BalajiRKB/Recruiter-AI'
-    },
-    {
-      title: 'GVP — Global Venture Play',
-      description: 'Full-stack TypeScript platform built as Tech Lead at Global Venture Play. Includes product management, team collaboration features, and scalable architecture for startup operations.',
-      technologies: ['TypeScript', 'React', 'Node.js', 'MongoDB', 'Express'],
-      github: 'https://github.com/balajirkb/GVP',
-      demo: '',
-      category: 'fullstack',
-      featured: false,
-      image: 'https://opengraph.githubassets.com/1/BalajiRKB/GVP'
     },
     {
       title: 'Inpart',
@@ -137,6 +149,7 @@ const Projects = () => {
       demo: '',
       category: 'fullstack',
       featured: false,
+      freelance: false,
       image: 'https://opengraph.githubassets.com/1/BalajiRKB/Inpart'
     },
     {
@@ -147,6 +160,7 @@ const Projects = () => {
       demo: '',
       category: 'fullstack',
       featured: false,
+      freelance: false,
       image: 'https://opengraph.githubassets.com/1/BalajiRKB/Ecommerce-Follow-Along'
     },
     {
@@ -157,16 +171,18 @@ const Projects = () => {
       demo: '',
       category: 'fullstack',
       featured: false,
+      freelance: false,
       image: 'https://opengraph.githubassets.com/1/BalajiRKB/ToDoo'
     },
     {
       title: 'Arch-dot',
       description: 'Personal Arch Linux dotfiles — window manager configs, shell setup, and system-level customizations for a fully optimized developer environment on bare metal.',
-      technologies: ['CSS', 'Shell', 'Linux', 'Arch Linux'],
+      technologies: ['Shell', 'Linux', 'Arch Linux'],
       github: 'https://github.com/balajirkb/Arch-dot',
       demo: '',
       category: 'tools',
       featured: false,
+      freelance: false,
       image: 'https://opengraph.githubassets.com/1/BalajiRKB/Arch-dot'
     },
     {
@@ -177,6 +193,7 @@ const Projects = () => {
       demo: '',
       category: 'systems',
       featured: false,
+      freelance: false,
       image: 'nand2tetris.gif'
     },
     {
@@ -187,12 +204,14 @@ const Projects = () => {
       demo: 'https://balajirkb.github.io/zombie-game/',
       category: 'gaming',
       featured: false,
+      freelance: false,
       image: 'zombieshoot.png'
     }
   ];
 
   const categories = [
     { id: 'all', name: 'All Projects' },
+    { id: 'freelance', name: '💼 Freelance' },
     { id: 'fullstack', name: 'Full Stack' },
     { id: 'frontend', name: 'Frontend' },
     { id: 'ai', name: 'AI & ML' },
@@ -268,7 +287,12 @@ const Projects = () => {
             />
           </div>
         )}
-        <div className="absolute top-2 right-2">
+        <div className="absolute top-2 right-2 flex flex-col gap-1 items-end">
+          {project.freelance && (
+            <span className="bg-amber-500/90 text-white text-xs px-2 py-0.5 rounded-full flex items-center gap-1">
+              <FaBriefcase size={9} /> Freelance
+            </span>
+          )}
           <span className="bg-blue-900/80 text-blue-200 text-xs px-2 py-1 rounded-full">
             {project.category}
           </span>
@@ -361,6 +385,10 @@ const Projects = () => {
                         {projects.length} Projects
                       </span>
                       <span className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
+                        {projects.filter(p => p.freelance).length} Freelance
+                      </span>
+                      <span className="flex items-center gap-1">
                         <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                         Active
                       </span>
@@ -385,7 +413,7 @@ const Projects = () => {
               <div className="grid md:grid-cols-2 gap-6 md:gap-8">
                 {featuredProjects.map((project, index) => (
                   <GlowingBorder key={project.title} intensity={0.6}>
-                    <div className="border border-blue-400 bg-blue-900/20 rounded-lg overflow-hidden hover:bg-blue-900/30 transition-all duration-300 h-full flex flex-col">
+                    <div className={`border ${project.freelance ? 'border-amber-400/70' : 'border-blue-400'} bg-blue-900/20 rounded-lg overflow-hidden hover:bg-blue-900/30 transition-all duration-300 h-full flex flex-col`}>
                       <div className="relative">
                         {project.image && (
                           <div className="h-56 bg-blue-900/40 flex items-center justify-center overflow-hidden">
@@ -399,9 +427,17 @@ const Projects = () => {
                             />
                           </div>
                         )}
-                        <span className="absolute top-2 right-2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
-                          <FaStar className="inline mr-1" />Featured
-                        </span>
+                        <div className="absolute top-2 right-2 flex flex-col gap-1 items-end">
+                          {project.freelance ? (
+                            <span className="bg-amber-500 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1">
+                              <FaBriefcase className="inline" size={10} /> Freelance Client
+                            </span>
+                          ) : (
+                            <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
+                              <FaStar className="inline mr-1" />Featured
+                            </span>
+                          )}
+                        </div>
                       </div>
                       <div className="p-6 flex flex-col flex-grow">
                         <h4 className="text-xl font-semibold text-blue-300 mb-2">{project.title}</h4>
@@ -497,7 +533,7 @@ const Projects = () => {
                 onClick={() => toggleCategory(category.id)}
                 className={`px-3 py-1.5 rounded-lg text-sm transition-colors flex items-center gap-2
                   ${selectedCategories.includes(category.id)
-                    ? 'bg-blue-600 text-white'
+                    ? category.id === 'freelance' ? 'bg-amber-500 text-white' : 'bg-blue-600 text-white'
                     : 'bg-blue-900/20 text-blue-300 hover:bg-blue-900/40'}`}
               >
                 {selectedCategories.includes(category.id) && <FaCheck size={10} />}
